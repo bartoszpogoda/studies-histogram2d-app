@@ -1,8 +1,15 @@
 package lab04;
 
+import controller.Controller;
+import controller.impl.ControllerImpl;
 import exceptions.ParametersNotCorrectException;
 import exceptions.ParametersNotSetException;
-import gui.MainWindow;
+import gui.HistogramView;
+import gui.MainWindowView;
+import gui.impl.HistogramViewImpl;
+import gui.impl.MainWindowViewImpl;
+import model.HistogramModel;
+import model.HistogramModelImpl;
 
 public class Main {
 	/*
@@ -10,9 +17,20 @@ public class Main {
 	 * (nx < 0 | ny < 0 | xmin >= xmax | ymin >= ymax) - bad
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// appConstruction
 		
-		new MainWindow();
+		HistogramModel histogramModel = new HistogramModelImpl();
+		
+		Controller controller = new ControllerImpl();
+		controller.setHistogramModel(histogramModel);
+		
+		MainWindowView mainWindowView = new MainWindowViewImpl();
+		mainWindowView.setController(controller);
+		
+		HistogramView histogramView = new HistogramViewImpl();
+		histogramView.setHistogramModel(histogramModel);
+		
+		controller.setMainWindow(mainWindowView);
 	}
 
 }
