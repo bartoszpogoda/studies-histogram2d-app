@@ -23,7 +23,6 @@ public class ControllerImpl implements Controller {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// BTN_REDRAW BTN_LOAD
 		if(arg0.getActionCommand().equalsIgnoreCase("BTN_REDRAW")){
 			int xmin,xmax,ymin,ymax,nx,ny;
 			try{
@@ -37,6 +36,12 @@ public class ControllerImpl implements Controller {
 				mainWindowView.reportError("Wszystkie parametry musza byc liczbami calkowitymi");
 				return;
 			}
+			
+			if((nx <= 0 || ny <= 0 || xmin >= xmax || ymin >= ymax)){
+				mainWindowView.reportError("Parametry nie sa poprawne (min<=max, n>0)");
+				return;
+			}
+				
 			
 			histogramModel.setXMin(xmin);
 			histogramModel.setXMax(xmax);
