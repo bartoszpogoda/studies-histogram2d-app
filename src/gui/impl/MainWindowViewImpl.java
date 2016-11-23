@@ -144,6 +144,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		actionPanel.add(label_6);
 		
 		tfFileName = new JTextField();
+		tfFileName.setActionCommand("BTN_LOAD");
 		tfFileName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfFileName.setMaximumSize(new Dimension(200,20));
 
@@ -173,6 +174,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	public void setController(Controller controller) {
 		this.btnReadFromFile.addActionListener(controller);
 		this.btnRedraw.addActionListener(controller);
+		this.tfFileName.addActionListener(controller);
 		
 	}
 
