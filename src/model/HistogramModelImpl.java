@@ -112,6 +112,8 @@ public class HistogramModelImpl implements HistogramModel {
 	public int getHistogramMaxValue() {
 		int histogramMaxValue = 0;
 
+		if(histogramValues == null) return histogramMaxValue;
+		
 		for (int[] row : histogramValues) {
 			for (int v : row) {
 				if (v > histogramMaxValue)

@@ -24,11 +24,13 @@ public class Main {
 		Controller controller = new ControllerImpl();
 		controller.setHistogramModel(histogramModel);
 		
-		MainWindowView mainWindowView = new MainWindowViewImpl();
-		mainWindowView.setController(controller);
 		
 		HistogramView histogramView = new HistogramViewImpl();
 		histogramView.setHistogramModel(histogramModel);
+		
+
+		MainWindowView mainWindowView = new MainWindowViewImpl(histogramView);
+		mainWindowView.setController(controller);
 		
 		controller.setMainWindow(mainWindowView);
 	}

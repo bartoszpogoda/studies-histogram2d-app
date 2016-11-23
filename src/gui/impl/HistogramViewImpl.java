@@ -24,7 +24,12 @@ public class HistogramViewImpl extends JPanel implements HistogramView {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
+		
+		if(histogramModel == null){
+			g.drawString("Model not found", 50, 50);
+			return;
+		}
+		
 		Graphics2D g2D = (Graphics2D) g;
 
 		int width = this.getWidth();
@@ -55,6 +60,11 @@ public class HistogramViewImpl extends JPanel implements HistogramView {
 			currentX += xStep;
 		}
 
+	}
+
+	@Override
+	public JPanel getJPanel() {
+		return this;
 	}
 
 }
