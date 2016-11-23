@@ -54,6 +54,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	private Component verticalStrut_1;
 	
 	public MainWindowViewImpl(HistogramView histogramView) {
+		this.setTitle("Histogram2D - Bartosz Pogoda");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("500px:grow"),

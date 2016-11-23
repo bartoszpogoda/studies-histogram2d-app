@@ -15,7 +15,7 @@ import model.HistogramModelImpl;
 public class Main {
 	/*
 	 * Controllers will have to validate
-	 * (nx < 0 | ny < 0 | xmin >= xmax | ymin >= ymax) - bad
+	 * TODO (nx < 0 | ny < 0 | xmin >= xmax | ymin >= ymax) - bad
 	 */
 	public static void main(String[] args) {
 		// appConstruction
