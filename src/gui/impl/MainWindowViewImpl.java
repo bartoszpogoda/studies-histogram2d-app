@@ -162,6 +162,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		actionPanel.setBackground(Color.LIGHT_GRAY);
 		
 		this.setSize(800,600);
+		this.setMinimumSize(new Dimension(800,600));
 		this.setVisible(true);
 	}
 
