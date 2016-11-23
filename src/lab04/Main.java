@@ -1,6 +1,7 @@
 package lab04;
 
 import controller.Controller;
+import controller.PointListReader;
 import controller.impl.ControllerImpl;
 import exceptions.ParametersNotCorrectException;
 import exceptions.ParametersNotSetException;
@@ -20,10 +21,11 @@ public class Main {
 		// appConstruction
 		
 		HistogramModel histogramModel = new HistogramModelImpl();
+		PointListReader pointListReader = new PointListReader();
 		
 		Controller controller = new ControllerImpl();
 		controller.setHistogramModel(histogramModel);
-		
+		controller.setPointListReader(pointListReader);
 		
 		HistogramView histogramView = new HistogramViewImpl();
 		histogramView.setHistogramModel(histogramModel);
@@ -32,7 +34,8 @@ public class Main {
 		MainWindowView mainWindowView = new MainWindowViewImpl(histogramView);
 		mainWindowView.setController(controller);
 		
-		controller.setMainWindow(mainWindowView);
+		controller.setMainWindowView(mainWindowView);
+		controller.setHistogramView(histogramView);
 	}
 
 }

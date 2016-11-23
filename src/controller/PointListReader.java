@@ -18,8 +18,11 @@ public class PointListReader {
 		this.inputStream = inputStream;
 	}
 	
+	public void setFileInputStream(String filename) throws FileNotFoundException{
+		this.inputStream = new FileInputStream(filename);
+	}
+	
 	public List<Point> read() throws NumberOfCordinatesNotEvenException{
-		//InputStream inputStream = new FileInputStream(filename);
 		Scanner scanner = new Scanner(inputStream);
 		
 		List<Point> listOfPoints = new ArrayList<>();

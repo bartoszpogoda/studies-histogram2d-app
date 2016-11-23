@@ -20,6 +20,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -147,6 +148,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 
 		actionPanel.add(tfFileName);
 		btnReadFromFile = new JButton("Wczytaj");
+		btnReadFromFile.setActionCommand("BTN_LOAD");
 		btnReadFromFile.setBackground(Color.YELLOW);
 		btnReadFromFile.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnReadFromFile.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -163,13 +165,54 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 
 	@Override
 	public void reportError(String message) {
-		// TODO Auto-generated method stub
-		
+		JOptionPane.showMessageDialog(this, message, "B³¹d", JOptionPane.ERROR_MESSAGE);
 	}
 
 	@Override
 	public void setController(Controller controller) {
-		// TODO Auto-generated method stub
+		this.btnReadFromFile.addActionListener(controller);
+		this.btnRedraw.addActionListener(controller);
+		
+	}
+
+	@Override
+	public String getXMin() {
+		return tfMinX.getText();
+	}
+
+	@Override
+	public String getXMax() {
+		return tfMaxX.getText();
+	}
+
+	@Override
+	public String getYMin() {
+		return tfMinY.getText();
+	}
+
+	@Override
+	public String getYMax() {
+		return tfMaxY.getText();
+	}
+
+	@Override
+	public String getNx() {
+		return tfNx.getText();
+	}
+
+	@Override
+	public String getNy() {
+		return tfNy.getText();
+	}
+
+	@Override
+	public String getFilename() {
+		return tfFileName.getText();
+	}
+
+	@Override
+	public void reportSuccess(String message) {
+		JOptionPane.showMessageDialog(this, message, "Sukces", JOptionPane.DEFAULT_OPTION);
 		
 	}
 	

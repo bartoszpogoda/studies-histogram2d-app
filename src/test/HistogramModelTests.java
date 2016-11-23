@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 import dom.Point;
+import exceptions.DataNotSetException;
 import exceptions.ParametersNotCorrectException;
 import exceptions.ParametersNotSetException;
 import gui.impl.HistogramViewImpl;
@@ -17,7 +18,7 @@ import model.HistogramModelImpl;
 public class HistogramModelTests {
 
 	@Test
-	public void test1() throws ParametersNotSetException, ParametersNotCorrectException {
+	public void test1() throws ParametersNotSetException, ParametersNotCorrectException, DataNotSetException {
 		
 		HistogramModel histogram = new HistogramModelImpl();
 		

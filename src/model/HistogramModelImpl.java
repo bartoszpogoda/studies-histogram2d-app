@@ -3,6 +3,7 @@ package model;
 import java.util.List;
 
 import dom.Point;
+import exceptions.DataNotSetException;
 import exceptions.ParametersNotSetException;
 
 public class HistogramModelImpl implements HistogramModel {
@@ -50,10 +51,13 @@ public class HistogramModelImpl implements HistogramModel {
 	}
 
 	@Override
-	public void recalculate() throws ParametersNotSetException {
+	public void recalculate() throws ParametersNotSetException, DataNotSetException {
 		if (nx == 0 | ny == 0)
 			throw new ParametersNotSetException();
 
+		if(listOfPoints == null)
+			throw new DataNotSetException();
+		
 		histogramValues = new int[nx][ny];
 
 		for (int[] row : histogramValues) {

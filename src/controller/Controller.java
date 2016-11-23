@@ -7,8 +7,9 @@ import gui.MainWindowView;
 import model.HistogramModel;
 
 public interface Controller extends ActionListener {
-	public void setMainWindow(MainWindowView mainWindowView);
+	public void setMainWindowView(MainWindowView mainWindowView);
 	public void setHistogramView(HistogramView histogramView);
 	public void setHistogramModel(HistogramModel histogramModel);
+	public void setPointListReader(PointListReader pointListReader);
 	
 }
