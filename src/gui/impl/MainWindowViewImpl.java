@@ -51,10 +51,10 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	private JButton btnReadFromFile, btnRedraw;
 	private JTextField tfMinX, tfMaxX, tfMinY, tfMaxY, tfNx, tfNy;
 	private JTextField tfFileName;
-	private Component verticalStrut;
 	private Component verticalStrut_1;
 	private JCheckBox chckShowGrid;
 	private Component verticalStrut_2;
+	private Component verticalStrut;
 	
 	public MainWindowViewImpl(HistogramView histogramView) {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -133,7 +133,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		btnRedraw = new JButton("Rysuj");
 		btnRedraw.setBackground(Color.ORANGE);
 		btnRedraw.setAlignmentX(Component.CENTER_ALIGNMENT);
-		btnRedraw.setMaximumSize(new Dimension(300,100));
+		btnRedraw.setMaximumSize(new Dimension(300, 30));
 		btnRedraw.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnRedraw.setActionCommand("BTN_REDRAW");
 		actionPanel.add(btnRedraw);
@@ -168,7 +168,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		btnReadFromFile.setBackground(Color.YELLOW);
 		btnReadFromFile.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnReadFromFile.setHorizontalAlignment(SwingConstants.TRAILING);
-		btnReadFromFile.setMaximumSize(new Dimension(300, 50));
+		btnReadFromFile.setMaximumSize(new Dimension(300, 30));
 		btnRedraw.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnReadFromFile.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		actionPanel.add(btnReadFromFile);
