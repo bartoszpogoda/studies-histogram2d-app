@@ -34,40 +34,31 @@ import java.awt.Graphics;
 import javax.swing.UIManager;
 import javax.swing.JSlider;
 import java.awt.Font;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	private JButton btnReadFromFile, btnRedraw;
 	
 	public MainWindowViewImpl(HistogramView histogramView) {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		this.setLayout(new GridBagLayout());
+		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("500px:grow"),
+				ColumnSpec.decode("100px"),},
+			new RowSpec[] {
+				RowSpec.decode("500px:grow"),
+				RowSpec.decode("1px"),}));
 		
-		//panel
-		GridBagConstraints c = new GridBagConstraints();
-		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.weightx = 0.7;
-		c.gridwidth = 2;
-		c.gridheight = 1;
-		
-		this.add(histogramView.getJPanel(), c);
-		
-		GridBagConstraints d = new GridBagConstraints();
-		d.fill = GridBagConstraints.BOTH;
-		d.gridx = 2;
-		d.gridy = 0;
-		d.weightx = 0.5;
-		d.gridwidth = 1;
-		d.gridheight = 1;
+		JPanel histogramPanel = histogramView.getJPanel();
+		getContentPane().add(histogramPanel, "1, 1, fill, fill");
 		
 		JPanel actionPanel = new JPanel();
 		
-		this.add(actionPanel, d);
+		getContentPane().add(actionPanel, "2, 1, fill, fill");
 		
 		btnReadFromFile = new JButton("Wczytaj...");
 		btnRedraw = new JButton("Przerysuj");
-		
 		actionPanel.add(btnReadFromFile);
 		actionPanel.add(btnRedraw);
 		
