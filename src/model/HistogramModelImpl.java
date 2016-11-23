@@ -87,7 +87,6 @@ public class HistogramModelImpl implements HistogramModel {
 
 			if (x >= nx)
 				x--;
-			System.out.println(scaledNx + " ");
 
 			float scaley = ((float) p.getY() - ymin) / (ymax - ymin);
 			float scaledNy = scaley * ny;
@@ -100,7 +99,7 @@ public class HistogramModelImpl implements HistogramModel {
 
 			if (y >= ny)
 				y--;
-			System.out.println(scaledNy + " ");
+			
 			histogramValues[x][y]++;
 
 		}

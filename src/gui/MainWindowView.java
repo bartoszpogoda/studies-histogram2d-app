@@ -21,4 +21,6 @@ public interface MainWindowView {
 	
 	public String getFilename();
 	
+	public boolean getGridMode();
+	
 }

@@ -85,6 +85,12 @@ public class ControllerImpl implements Controller {
 			mainWindowView.reportSuccess("Dane za³adowane pomyœlnie");
 			
 		}
+		else if(arg0.getActionCommand().equalsIgnoreCase("GRID")){
+			boolean gridMode = mainWindowView.getGridMode();
+			
+			histogramView.setGridMode(gridMode);
+			histogramView.repaint();
+		}
 
 	}
 

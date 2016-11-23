@@ -45,6 +45,7 @@ import javax.swing.Box;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
+import javax.swing.JCheckBox;
 
 public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	private JButton btnReadFromFile, btnRedraw;
@@ -52,8 +53,11 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	private JTextField tfFileName;
 	private Component verticalStrut;
 	private Component verticalStrut_1;
+	private JCheckBox chckShowGrid;
+	private Component verticalStrut_2;
 	
 	public MainWindowViewImpl(HistogramView histogramView) {
+		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.setTitle("Histogram2D - Bartosz Pogoda");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
@@ -134,7 +138,17 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		btnRedraw.setActionCommand("BTN_REDRAW");
 		actionPanel.add(btnRedraw);
 		
-		verticalStrut = Box.createVerticalStrut(120);
+		verticalStrut_2 = Box.createVerticalStrut(40);
+		actionPanel.add(verticalStrut_2);
+		
+		chckShowGrid = new JCheckBox("Siatka");
+		chckShowGrid.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		chckShowGrid.setBackground(new Color(192, 192, 192));
+		chckShowGrid.setAlignmentX(Component.CENTER_ALIGNMENT);
+		chckShowGrid.setActionCommand("GRID");
+		actionPanel.add(chckShowGrid);
+		
+		verticalStrut = Box.createVerticalStrut(60);
 		actionPanel.add(verticalStrut);
 
 		
@@ -176,6 +190,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		this.btnReadFromFile.addActionListener(controller);
 		this.btnRedraw.addActionListener(controller);
 		this.tfFileName.addActionListener(controller);
+		this.chckShowGrid.addActionListener(controller);
 		
 	}
 
@@ -218,6 +233,11 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	public void reportSuccess(String message) {
 		JOptionPane.showMessageDialog(this, message, "Sukces", JOptionPane.DEFAULT_OPTION);
 		
+	}
+
+	@Override
+	public boolean getGridMode() {
+		return chckShowGrid.isSelected();
 	}
 	
 }

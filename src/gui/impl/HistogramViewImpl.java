@@ -15,6 +15,11 @@ import model.HistogramModel;
 public class HistogramViewImpl extends JPanel implements HistogramView {
 
 	private HistogramModel histogramModel;
+	private boolean gridMode;
+
+	public HistogramViewImpl() {
+		gridMode = false;
+	}
 
 	@Override
 	public void setHistogramModel(HistogramModel histogramModel) {
@@ -24,12 +29,12 @@ public class HistogramViewImpl extends JPanel implements HistogramView {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-		if(histogramModel == null){
+
+		if (histogramModel == null) {
 			g.drawString("Model not found", 50, 50);
 			return;
 		}
-		
+
 		Graphics2D g2D = (Graphics2D) g;
 
 		int width = this.getWidth();
@@ -60,11 +65,32 @@ public class HistogramViewImpl extends JPanel implements HistogramView {
 			currentX += xStep;
 		}
 
+		// grid
+		if(gridMode){
+			currentX = 0;
+
+			g2D.setColor(Color.RED);
+			for (int i = 0; i < histogramModel.getNx(); i++) {
+				int currentY = 0;
+				for (int j = 0; j < histogramModel.getNy(); j++) {
+					g2D.drawRect(currentX, currentY, xStep, yStep);
+					currentY += yStep;
+
+				}
+
+				currentX += xStep;
+			}
+		}
 	}
 
 	@Override
 	public JPanel getJPanel() {
 		return this;
+	}
+
+	@Override
+	public void setGridMode(boolean mode) {
+		this.gridMode = mode;
 	}
 
 }

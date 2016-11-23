@@ -8,4 +8,6 @@ public interface HistogramView {
 	public void setHistogramModel(HistogramModel histogramModel);
 	public JPanel getJPanel();
 	public void repaint();
+	
+	public void setGridMode(boolean mode);
 }
