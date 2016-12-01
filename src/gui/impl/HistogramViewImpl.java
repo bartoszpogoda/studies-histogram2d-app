@@ -71,10 +71,10 @@ public class HistogramViewImpl extends JPanel implements HistogramView {
 
 			g2D.setColor(Color.RED);
 			for (int i = 0; i < histogramModel.getNx(); i++) {
-				int currentY = 0;
+				int currentY = height - yStep;
 				for (int j = 0; j < histogramModel.getNy(); j++) {
 					g2D.drawRect(currentX, currentY, xStep, yStep);
-					currentY += yStep;
+					currentY -= yStep;
 
 				}
 
