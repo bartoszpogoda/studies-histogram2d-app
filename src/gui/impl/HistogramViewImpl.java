@@ -53,12 +53,12 @@ public class HistogramViewImpl extends JPanel implements HistogramView {
 		for (int[] row : histogramModel.getHistogramValues()) {
 			// 0 -> nx
 
-			int currentY = 0;
+			int currentY = height - yStep;
 			for (int v : row) {
 				int grayScaleValue = (int) (255 - ((float) v / histogramMaxValue) * 255);
 				g2D.setColor(new Color(grayScaleValue, grayScaleValue, grayScaleValue));
 				g2D.fillRect(currentX, currentY, xStep, yStep);
-				currentY += yStep;
+				currentY -= yStep;
 
 			}
 
