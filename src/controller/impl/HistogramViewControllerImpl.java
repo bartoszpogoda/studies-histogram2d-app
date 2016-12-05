@@ -19,6 +19,8 @@ public class HistogramViewControllerImpl implements HistogramViewController {
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
+		if(!arg0.isShiftDown()) return;
+		
 		int x = arg0.getX();
 		int y = arg0.getY();
 
