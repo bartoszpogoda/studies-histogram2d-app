@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import controller.Controller;
+import controller.HistogramViewController;
 import exceptions.ParametersNotCorrectException;
 import exceptions.ParametersNotSetException;
 import gui.HistogramView;
@@ -92,5 +94,11 @@ public class HistogramViewImpl extends JPanel implements HistogramView {
 	public void setGridMode(boolean mode) {
 		this.gridMode = mode;
 	}
+
+	@Override
+	public void setController(HistogramViewController controller) {
+		this.addMouseListener(controller);
+	}
+
 
 }

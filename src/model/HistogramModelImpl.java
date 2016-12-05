@@ -144,4 +144,14 @@ public class HistogramModelImpl implements HistogramModel {
 		return this.ny;
 	}
 
+	@Override
+	public void addScaledPoint(Point point, int width, int height) throws DataNotSetException {
+		int newX = (int) (xmin + ((double)point.getX()/(double)width)*(double)(xmax-xmin));
+		int newY = (int) (ymin + ((double)point.getY()/(double)height)*(double)(ymax-ymin));
+		
+		if(listOfPoints == null) throw new DataNotSetException();
+		
+		this.listOfPoints.add(new Point(newX,newY));
+	}
+
 }
