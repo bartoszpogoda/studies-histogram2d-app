@@ -19,6 +19,9 @@ public interface MainWindowView {
 	public String getNx();
 	public String getNy();
 	
+	public String getNewPointX();
+	public String getNewPointY();
+	
 	public String getFilename();
 	
 	public boolean getGridMode();

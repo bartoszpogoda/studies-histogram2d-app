@@ -51,6 +51,13 @@ public class HistogramModelImpl implements HistogramModel {
 	}
 
 	@Override
+	public void addPoint(Point point) throws DataNotSetException {
+		if(listOfPoints == null) throw new DataNotSetException();
+		
+		this.listOfPoints.add(point);
+		
+	}
+	@Override
 	public void recalculate() throws ParametersNotSetException, DataNotSetException {
 		if (nx == 0 | ny == 0)
 			throw new ParametersNotSetException();
@@ -136,4 +143,5 @@ public class HistogramModelImpl implements HistogramModel {
 	public int getNy() {
 		return this.ny;
 	}
+
 }

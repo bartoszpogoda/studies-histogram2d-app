@@ -53,8 +53,16 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	private JTextField tfFileName;
 	private Component verticalStrut_1;
 	private JCheckBox chckShowGrid;
-	private Component verticalStrut_2;
+	private JTextField tfX;
+	private JLabel lblX;
+	private JTextField tfY;
+	private JLabel lblY;
+	private JButton btnAddPoint;
 	private Component verticalStrut;
+	private Component verticalStrut_2;
+	private Component verticalStrut_4;
+	private Component verticalStrut_3;
+	private Component verticalStrut_5;
 	
 	public MainWindowViewImpl(HistogramView histogramView) {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -126,8 +134,8 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		actionPanel.add(label_5);
 		actionPanel.add(tfNy);
 		
-		verticalStrut_1 = Box.createVerticalStrut(20);
-		actionPanel.add(verticalStrut_1);
+		verticalStrut_4 = Box.createVerticalStrut(10);
+		actionPanel.add(verticalStrut_4);
 		
 
 		btnRedraw = new JButton("Rysuj");
@@ -138,8 +146,43 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		btnRedraw.setActionCommand("BTN_REDRAW");
 		actionPanel.add(btnRedraw);
 		
-		verticalStrut_2 = Box.createVerticalStrut(40);
-		actionPanel.add(verticalStrut_2);
+		verticalStrut_1 = Box.createVerticalStrut(20);
+		actionPanel.add(verticalStrut_1);
+		
+		lblX = new JLabel("x");
+		lblX.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblX.setAlignmentX(0.5f);
+		actionPanel.add(lblX);
+		
+		tfX = new JTextField();
+		tfX.setMaximumSize(new Dimension(200, 20));
+		tfX.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		actionPanel.add(tfX);
+		
+		lblY = new JLabel("y");
+		lblY.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblY.setAlignmentX(0.5f);
+		actionPanel.add(lblY);
+		
+		tfY = new JTextField();
+		tfY.setMaximumSize(new Dimension(200, 20));
+		tfY.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		actionPanel.add(tfY);
+		
+		verticalStrut = Box.createVerticalStrut(10);
+		actionPanel.add(verticalStrut);
+		
+		btnAddPoint = new JButton("Dodaj");
+		btnAddPoint.setMaximumSize(new Dimension(300, 30));
+		btnAddPoint.setHorizontalAlignment(SwingConstants.TRAILING);
+		btnAddPoint.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnAddPoint.setBackground(Color.YELLOW);
+		btnAddPoint.setAlignmentX(0.5f);
+		btnAddPoint.setActionCommand("BTN_ADD");
+		actionPanel.add(btnAddPoint);
+		
+		verticalStrut_3 = Box.createVerticalStrut(20);
+		actionPanel.add(verticalStrut_3);
 		
 		chckShowGrid = new JCheckBox("Siatka");
 		chckShowGrid.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -148,8 +191,8 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		chckShowGrid.setActionCommand("GRID");
 		actionPanel.add(chckShowGrid);
 		
-		verticalStrut = Box.createVerticalStrut(60);
-		actionPanel.add(verticalStrut);
+		verticalStrut_5 = Box.createVerticalStrut(20);
+		actionPanel.add(verticalStrut_5);
 
 		
 		JLabel label_6 = new JLabel("Nazwa pliku");
@@ -170,13 +213,16 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		btnReadFromFile.setHorizontalAlignment(SwingConstants.TRAILING);
 		btnReadFromFile.setMaximumSize(new Dimension(300, 30));
 		btnRedraw.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		verticalStrut_2 = Box.createVerticalStrut(10);
+		actionPanel.add(verticalStrut_2);
 		btnReadFromFile.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		actionPanel.add(btnReadFromFile);
 		
 		actionPanel.setBackground(Color.LIGHT_GRAY);
 		
-		this.setSize(800,600);
-		this.setMinimumSize(new Dimension(800,600));
+		this.setSize(900,700);
+		this.setMinimumSize(new Dimension(900,700));
 		this.setVisible(true);
 	}
 
@@ -189,6 +235,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	public void setController(Controller controller) {
 		this.btnReadFromFile.addActionListener(controller);
 		this.btnRedraw.addActionListener(controller);
+		this.btnAddPoint.addActionListener(controller);
 		this.tfFileName.addActionListener(controller);
 		this.chckShowGrid.addActionListener(controller);
 		
@@ -238,6 +285,16 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 	@Override
 	public boolean getGridMode() {
 		return chckShowGrid.isSelected();
+	}
+
+	@Override
+	public String getNewPointX() {
+		return tfX.getText();
+	}
+
+	@Override
+	public String getNewPointY() {
+		return tfY.getText();
 	}
 	
 }

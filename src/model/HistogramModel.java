@@ -15,6 +15,7 @@ public interface HistogramModel {
 	public void setNy(int ny);
 	
 	public void setData(List<Point> listOfPoints);
+	public void addPoint(Point point) throws DataNotSetException;
 	public void recalculate() throws ParametersNotSetException, DataNotSetException;
 	
 	public int[][] getHistogramValues();

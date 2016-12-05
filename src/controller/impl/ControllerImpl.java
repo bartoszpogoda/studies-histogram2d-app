@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 
 import controller.Controller;
 import controller.PointListReader;
+import dom.Point;
 import exceptions.DataNotSetException;
 import exceptions.NumberOfCordinatesNotEvenException;
 import exceptions.ParametersNotSetException;
@@ -84,6 +85,34 @@ public class ControllerImpl implements Controller {
 			
 			mainWindowView.reportSuccess("Dane za³adowane pomyœlnie");
 			
+		}
+		else if(arg0.getActionCommand().equalsIgnoreCase("BTN_ADD")){
+			int x,y;
+			try{
+				x = Integer.parseInt(mainWindowView.getNewPointX());
+				y = Integer.parseInt(mainWindowView.getNewPointY());
+			} catch(NumberFormatException e){
+				mainWindowView.reportError("Wspó³rzêdne musz¹ byc liczbami calkowitymi");
+				return;
+			}
+			
+			try {
+				histogramModel.addPoint(new Point(x,y));
+			} catch (DataNotSetException e1) {
+				mainWindowView.reportError("Najpierw wczytaj dane");
+				return;
+			}
+			
+			try {
+				histogramModel.recalculate();
+				histogramView.repaint();
+			} catch (ParametersNotSetException e) {
+				return;
+			} catch (DataNotSetException e) {
+				return;
+			}
+
+			mainWindowView.reportSuccess("Punkt dodany");
 		}
 		else if(arg0.getActionCommand().equalsIgnoreCase("GRID")){
 			boolean gridMode = mainWindowView.getGridMode();
