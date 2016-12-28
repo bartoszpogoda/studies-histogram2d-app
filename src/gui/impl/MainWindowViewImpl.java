@@ -223,6 +223,7 @@ public class MainWindowViewImpl extends JFrame implements MainWindowView {
 		
 		this.setSize(900,700);
 		this.setMinimumSize(new Dimension(900,700));
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
