@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import gui.HistogramView;
 import gui.MainWindowView;
+import helper.PointListReader;
 import model.HistogramModel;
 
 public interface Controller extends ActionListener {

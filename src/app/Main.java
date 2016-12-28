@@ -2,7 +2,6 @@ package app;
 
 import controller.Controller;
 import controller.HistogramViewController;
-import controller.PointListReader;
 import controller.impl.ControllerImpl;
 import controller.impl.HistogramViewControllerImpl;
 import exceptions.ParametersNotCorrectException;
@@ -11,8 +10,9 @@ import gui.HistogramView;
 import gui.MainWindowView;
 import gui.impl.HistogramViewImpl;
 import gui.impl.MainWindowViewImpl;
+import helper.PointListReader;
 import model.HistogramModel;
-import model.HistogramModelImpl;
+import model.impl.HistogramModelImpl;
 
 public class Main {
 	public static void main(String[] args) {

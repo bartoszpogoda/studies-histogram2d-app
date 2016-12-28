@@ -2,9 +2,9 @@ package model;
 
 import java.util.List;
 
-import dom.Point;
 import exceptions.DataNotSetException;
 import exceptions.ParametersNotSetException;
+import helper.Point;
 
 public interface HistogramModel {
 	public void setXMin(int xmin);

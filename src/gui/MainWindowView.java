@@ -3,8 +3,8 @@ package gui;
 import java.util.List;
 
 import controller.Controller;
-import dom.Point;
 import exceptions.ParametersNotSetException;
+import helper.Point;
 
 public interface MainWindowView {
 	public void reportError(String message);

@@ -1,4 +1,4 @@
-package controller;
+package helper;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import dom.Point;
 import exceptions.NumberOfCordinatesNotEvenException;
 
 public class PointListReader {

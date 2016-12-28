@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.PointListReader;
-import dom.Point;
 import exceptions.NumberOfCordinatesNotEvenException;
+import helper.Point;
+import helper.PointListReader;
 
 public class PointListReaderTest {
 	@Test

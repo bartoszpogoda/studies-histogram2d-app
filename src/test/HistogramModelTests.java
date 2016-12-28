@@ -7,13 +7,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import dom.Point;
 import exceptions.DataNotSetException;
 import exceptions.ParametersNotCorrectException;
 import exceptions.ParametersNotSetException;
 import gui.impl.HistogramViewImpl;
+import helper.Point;
 import model.HistogramModel;
-import model.HistogramModelImpl;
+import model.impl.HistogramModelImpl;
 
 public class HistogramModelTests {
 

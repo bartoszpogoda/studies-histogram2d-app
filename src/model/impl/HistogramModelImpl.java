@@ -1,10 +1,11 @@
-package model;
+package model.impl;
 
 import java.util.List;
 
-import dom.Point;
 import exceptions.DataNotSetException;
 import exceptions.ParametersNotSetException;
+import helper.Point;
+import model.HistogramModel;
 
 public class HistogramModelImpl implements HistogramModel {
 

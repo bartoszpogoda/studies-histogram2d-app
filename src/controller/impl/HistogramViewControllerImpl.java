@@ -4,11 +4,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import controller.HistogramViewController;
-import dom.Point;
 import exceptions.DataNotSetException;
 import exceptions.ParametersNotSetException;
 import gui.HistogramView;
 import gui.MainWindowView;
+import helper.Point;
 import model.HistogramModel;
 
 public class HistogramViewControllerImpl implements HistogramViewController {
