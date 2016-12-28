@@ -1,4 +1,4 @@
-package lab04;
+package app;
 
 import controller.Controller;
 import controller.HistogramViewController;
