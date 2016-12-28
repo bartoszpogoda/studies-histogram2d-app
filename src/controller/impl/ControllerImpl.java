@@ -69,7 +69,7 @@ public class ControllerImpl implements Controller {
 			filename =  mainWindowView.getFilename();
 			
 			try {
-				pointListReader.setFileInputStream(filename);
+				pointListReader.setFileInputStream("files/" + filename);
 			} catch (FileNotFoundException e) {
 				mainWindowView.reportError("B³¹d odczytu pliku");
 				return;
